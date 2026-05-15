@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RT MOTORS | Compra-Venta de Autos Seminuevos</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:white;
+    font-family:'Montserrat',sans-serif;
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+.container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,.90);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 0;
+}
+
+.logo{
+    font-family:'Oswald',sans-serif;
+    font-size:2rem;
+    font-weight:700;
+    color:#ff1d1d;
+}
+
+.logo span{
+    color:white;
+}
+
+.menu{
+    display:flex;
+    gap:35px;
+}
+
+.menu a{
+    font-size:.95rem;
+    transition:.3s;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#ff1d1d;
+    left:0;
+    bottom:-6px;
+    transition:.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(to right, rgba(0,0,0,.85), rgba(0,0,0,.45)),
+    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h4{
+    color:#ff1d1d;
+    font-size:1.2rem;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-family:'Oswald',sans-serif;
+    font-size:5rem;
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    line-height:1.8;
+    color:#ddd;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 35px;
+    border-radius:6px;
+    font-weight:600;
+    transition:.3s;
+    display:inline-block;
+}
+
+.btn-red{
+    background:#ff1d1d;
+}
+
+.btn-red:hover{
+    background:#d10000;
+}
+
+.btn-outline{
+    border:2px solid white;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:black;
+}
+
+/* INFO */
+
+.info{
+    margin-top:-70px;
+    position:relative;
+    z-index:5;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.info-card{
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.info-card h3{
+    margin-bottom:10px;
+    color:#ff1d1d;
+}
+
+/* ABOUT */
+
+section{
+    padding:120px 0;
+}
+
+.section-title{
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-family:'Oswald',sans-serif;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#aaa;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about-text p{
+    line-height:1.9;
+    color:#ccc;
+    margin-bottom:20px;
+}
+
+.about-img{
+    border-radius:12px;
+    overflow:hidden;
+}
+
+/* SERVICES */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.service-card{
+    background:#111;
+    padding:40px 25px;
+    border-radius:10px;
+    text-align:center;
+    transition:.3s;
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    border-color:#ff1d1d;
+}
+
+.service-card h3{
+    margin:20px 0 10px;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.gallery-grid img{
+    height:300px;
+    object-fit:cover;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.03);
+}
+
+/* INVENTORY */
+
+.inventory-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.car-card{
+    background:#111;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.car-card:hover{
+    transform:translateY(-10px);
+}
+
+.car-content{
+    padding:25px;
+}
+
+.car-content h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#ff1d1d;
+    font-size:1.4rem;
+    font-weight:700;
+    margin-top:15px;
+}
+
+/* SOCIAL */
+
+.social-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.social-grid img{
+    border-radius:10px;
+    height:250px;
+    object-fit:cover;
+}
+
+/* CONTACT */
+
+.contact{
+    background:#0d0d0d;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.contact-box{
+    background:#111;
+    padding:40px;
+    border-radius:10px;
+}
+
+.contact-box h3{
+    margin-bottom:25px;
+    color:#ff1d1d;
+}
+
+.contact-box p{
+    margin-bottom:15px;
+    color:#ccc;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+    background:black;
+    padding:40px 0;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer p{
+    color:#777;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+    .services-grid,
+    .inventory-grid,
+    .gallery-grid,
+    .social-grid,
+    .info-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .menu{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:3.2rem;
+    }
+
+    .services-grid,
+    .inventory-grid,
+    .gallery-grid,
+    .social-grid,
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container navbar">
+
+<div class="logo">
+RT <span>MOTORS</span>
+</div>
+
+<nav class="menu">
+<a href="#inicio">Inicio</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#servicios">Servicios</a>
+<a href="#inventario">Inventario</a>
+<a href="#galeria">Galería</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+</div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+<div class="container hero-content">
+
+<h4>RT MOTORS</h4>
+
+<h1>
+COMPRA-VENTA <br>
+DE AUTOS SEMINUEVOS
+</h1>
+
+<p>
+Encuentra vehículos seminuevos de calidad, con garantía,
+excelente precio y atención personalizada en Guadalajara.
+</p>
+
+<div class="hero-buttons">
+<a href="#inventario" class="btn btn-red">VER INVENTARIO</a>
+<a href="#contacto" class="btn btn-outline">CONTACTAR</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- INFO -->
+
+<section class="info">
+
+<div class="container info-grid">
+
+<div class="info-card">
+<h3>Ubicación</h3>
+<p>Av. Juan Gil Preciado 4070D, Zapopan, Jalisco.</p>
+</div>
+
+<div class="info-card">
+<h3>Instagram</h3>
+<p>@rt_motors__</p>
+</div>
+
+<div class="info-card">
+<h3>Servicios</h3>
+<p>Compra, venta y financiamiento.</p>
+</div>
+
+<div class="info-card">
+<h3>Horario</h3>
+<p>Lunes a sábado 10:00 am - 7:00 pm</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="nosotros">
+
+<div class="container">
+
+<div class="section-title">
+<h2>NOSOTROS</h2>
+<p>Tu mejor opción en autos seminuevos.</p>
+</div>
+
+<div class="about">
+
+<div class="about-text">
+
+<p>
+En RT MOTORS nos especializamos en la compra y venta de autos
+seminuevos de diferentes marcas y segmentos. Nuestro objetivo es
+brindar vehículos confiables, atractivos y con excelente respaldo
+para cada cliente.
+</p>
+
+<p>
+Trabajamos constantemente en mejorar nuestra presencia digital mediante
+campañas publicitarias, diseño visual, promociones y contenido para
+redes sociales enfocado en generar confianza y atraer nuevos clientes.
+</p>
+
+<a href="https://www.instagram.com/rt_motors__/" target="_blank" class="btn btn-red">
+VER INSTAGRAM
+</a>
+
+</div>
+
+<div class="about-img">
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1883&auto=format&fit=crop">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="servicios">
+
+<div class="container">
+
+<div class="section-title">
+<h2>SERVICIOS</h2>
+<p>Lo que ofrecemos para nuestros clientes.</p>
+</div>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>Compra de Autos</h3>
+<p>Compramos tu vehículo de forma rápida y segura.</p>
+</div>
+
+<div class="service-card">
+<h3>Venta de Autos</h3>
+<p>Gran variedad de autos seminuevos certificados.</p>
+</div>
+
+<div class="service-card">
+<h3>Financiamiento</h3>
+<p>Opciones flexibles para adquirir tu auto ideal.</p>
+</div>
+
+<div class="service-card">
+<h3>Garantía</h3>
+<p>Vehículos revisados y listos para entrega.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- INVENTORY -->
+
+<section id="inventario">
+
+<div class="container">
+
+<div class="section-title">
+<h2>INVENTARIO DESTACADO</h2>
+<p>Autos disponibles actualmente.</p>
+</div>
+
+<div class="inventory-grid">
+
+<div class="car-card">
+<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=1974&auto=format&fit=crop">
+<div class="car-content">
+<h3>BMW M2</h3>
+<p>2020 | Automático | Deportivo</p>
+<div class="price">$749,900</div>
+</div>
+</div>
+
+<div class="car-card">
+<img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1887&auto=format&fit=crop">
+<div class="car-content">
+<h3>Mercedes GLC 300</h3>
+<p>2021 | SUV Premium</p>
+<div class="price">$899,900</div>
+</div>
+</div>
+
+<div class="car-card">
+<img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1938&auto=format&fit=crop">
+<div class="car-content">
+<h3>Ford Mustang GT</h3>
+<p>2019 | Deportivo</p>
+<div class="price">$599,900</div>
+</div>
+</div>
+
+<div class="car-card">
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop">
+<div class="car-content">
+<h3>Jeep Grand Cherokee</h3>
+<p>2020 | SUV</p>
+<div class="price">$689,900</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALERIA -->
+
+<section id="galeria">
+
+<div class="container">
+
+<div class="section-title">
+<h2>GALERÍA</h2>
+<p>Fotografías y contenido visual de RT MOTORS.</p>
+</div>
+
+<div class="gallery-grid">
+
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1883&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1935&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1887&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=2070&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SOCIAL -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+<h2>CONTENIDO DIGITAL</h2>
+<p>Publicaciones, campañas y promociones realizadas.</p>
+</div>
+
+<div class="social-grid">
+
+<img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=2070&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1883&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1887&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1935&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1938&auto=format&fit=crop">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contacto">
+
+<div class="container">
+
+<div class="section-title">
+<h2>CONTACTO</h2>
+<p>Agenda una cita o solicita información.</p>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-box">
+
+<h3>Información</h3>
+
+<p>
+<strong>Dirección:</strong><br>
+Av. Juan Gil Preciado 4070D, Zapopan, Jalisco.
+</p>
+
+<p>
+<strong>Instagram:</strong><br>
+@rt_motors__
+</p>
+
+<p>
+<strong>Servicios:</strong><br>
+Compra y venta de autos seminuevos.
+</p>
+
+</div>
+
+<div class="contact-box">
+
+<h3>Promoción Digital</h3>
+
+<p>
+✔ Publicaciones para Facebook
+</p>
+
+<p>
+✔ Flyers y promociones
+</p>
+
+<p>
+✔ Reels e historias
+</p>
+
+<p>
+✔ Diseño de anuncios
+</p>
+
+<p>
+✔ Campañas publicitarias
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="logo">
+RT <span>MOTORS</span>
+</div>
+
+<br>
+
+<p>
+© 2026 RT MOTORS - Todos los derechos reservados.
+</p>
+
+</div>
+
+</footer>
+
+</body>
+</html>
